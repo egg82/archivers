@@ -1,0 +1,28 @@
+FROM redhat/ubi9-minimal AS builder
+
+RUN microdnf install -y python3 python3-pip bash \
+  && microdnf clean all \
+  && rm -rf /var/cache/dnf
+
+WORKDIR /install
+COPY requirements.txt .
+RUN python3 -m pip install --prefix=/install -r requirements.txt
+
+FROM redhat/ubi9-micro
+
+COPY --from=builder /usr/bin/python3.9 /usr/bin/python3.9
+COPY --from=builder /usr/lib64/python3.9 /usr/lib64/python3.9
+COPY --from=builder /usr/lib64/libpython3.9.so.* /usr/lib64/
+
+COPY --from=builder /usr/lib64/python3.9/lib-dynload /usr/lib64/python3.9/lib-dynload
+
+COPY --from=builder /usr/lib64/libz.so.* /usr/lib64/
+COPY --from=builder /usr/lib64/libcrypto.so.* /usr/lib64/
+COPY --from=builder /usr/lib64/libssl.so.* /usr/lib64/
+
+COPY --from=builder /install /install
+
+WORKDIR /app
+COPY import.py entrypoint.sh /app/
+
+ENTRYPOINT ["/app/entrypoint.sh"]

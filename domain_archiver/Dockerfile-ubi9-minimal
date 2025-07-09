@@ -1,0 +1,14 @@
+FROM redhat/ubi9-minimal
+
+RUN microdnf install -y python3 python3-pip bash \
+  && microdnf clean all \
+  && rm -rf /var/cache/dnf
+
+WORKDIR /install
+COPY requirements.txt .
+RUN python3 -m pip install --prefix=/install -r requirements.txt
+
+WORKDIR /app
+COPY import.py entrypoint.sh /app/
+
+ENTRYPOINT ["/app/entrypoint.sh"]

@@ -29,6 +29,7 @@ COPY --from=builder /usr/lib64/python3.9/lib-dynload /usr/lib64/python3.9/lib-dy
 COPY --from=builder /usr/lib64/libz.so.* /usr/lib64/
 COPY --from=builder /usr/lib64/libcrypto.so.* /usr/lib64/
 COPY --from=builder /usr/lib64/libssl.so.* /usr/lib64/
+COPY --from=builder /usr/lib64/libexpat.so.* /usr/lib64/
 
 COPY --from=builder /install /install
 COPY --from=builder /runtime-deps/ /lib64/

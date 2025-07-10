@@ -1,6 +1,6 @@
 FROM redhat/ubi9-minimal AS builder
 
-RUN microdnf install -y python3 python3-pip bash \
+RUN microdnf install -y python3 python3-pip bash expat \
   && microdnf clean all \
   && rm -rf /var/cache/dnf
 

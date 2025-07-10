@@ -3,7 +3,7 @@ FROM python:3.9-alpine
 RUN apk add --no-cache --virtual .build-deps \
     build-base \
   && apk add --no-cache \
-    bash \
+    bash expat \
   && pip install --upgrade pip \
   && apk del .build-deps
 

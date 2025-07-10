@@ -22,6 +22,9 @@ import xml.etree.ElementTree as ET
 
 import logging
 
+import warnings
+from bs4 import XMLParsedAsHTMLWarning
+
 TAG=os.environ["TAG"]
 ARCHIVEBOX_URL = os.environ["ARCHIVEBOX_URL"].rstrip("/")
 API_TOKEN = os.environ["API_TOKEN"]
@@ -162,7 +165,7 @@ def get_urls_from_sitemaps(robots : Optional[RobotFileParser]) -> list[str]:
 
   for url in sitemap_urls:
     try:
-      res = requests.get(url, timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
+      res = requests.get(url.strip(), timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
       res.raise_for_status()
       root = ET.fromstring(res.content)
       ret_val.extend([loc.text for loc in root.findall(".//{*}loc") if loc.text])
@@ -213,7 +216,7 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], visi
     soup = BeautifulSoup(resp.text, "html.parser")
     futures = []
     for a in soup.find_all("a", href=True):
-      href = urljoin(resp.url, a["href"])
+      href = urljoin(resp.url, a["href"]).strip()
       if not href.startswith(("http://","https://")):
         continue
       with lock:
@@ -280,6 +283,8 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
   return domain, len(links)
 
 def main():
+  warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
+
   visited = set()
   lock = threading.Lock()
 

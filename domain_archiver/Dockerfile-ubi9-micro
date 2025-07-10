@@ -1,6 +1,6 @@
 FROM redhat/ubi9-minimal AS builder
 
-RUN microdnf install -y python3 python3-pip bash \
+RUN microdnf install -y python3 python3-pip bash expat \
   && microdnf clean all \
   && rm -rf /var/cache/dnf
 
@@ -19,6 +19,7 @@ COPY --from=builder /usr/lib64/python3.9/lib-dynload /usr/lib64/python3.9/lib-dy
 COPY --from=builder /usr/lib64/libz.so.* /usr/lib64/
 COPY --from=builder /usr/lib64/libcrypto.so.* /usr/lib64/
 COPY --from=builder /usr/lib64/libssl.so.* /usr/lib64/
+COPY --from=builder /usr/lib64/libexpat.so.* /usr/lib64/
 
 COPY --from=builder /install /install
 

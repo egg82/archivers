@@ -119,6 +119,12 @@ if raw:
 else:
   URL_FILTERS = [re.compile(rx) for rx in _default_domain_filters + _default_static_filters]
 
+raw = os.getenv("EXCLUDE_URLS_REGEX", None)
+if raw:
+  EXCLUDE_URLS_REGEX = re.compile(raw)
+else:
+  EXCLUDE_URLS_REGEX = re.compile(r"(?i)\.(?:tar\.gz|css|js|jpe?g|gif|png|bmp|ico|svg|woff2?|ttf|eot|otf|mp3|wav|ogg|mp4|avi|mov|wmv|flv|mkv|zip|rar|bz2|7z|exe)(?:[?#].*)?$")
+
 # -- back to your regularly-scheduled crawler
 
 def get_robots(domain : str, url : Optional[str] = None) -> Optional[RobotFileParser]:
@@ -223,7 +229,7 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], visi
         if href in visited:
           continue
 
-      if any(p.match(href) for p in URL_FILTERS):
+      if not EXCLUDE_URLS_REGEX.match(href) and any(p.match(href) for p in URL_FILTERS):
         futures.append(pool.submit(get_links, href, delay, robots, visited, lock, pool, depth - 1))
       for fut in futures:
         ret_val.extend(fut.result())

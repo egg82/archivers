@@ -123,7 +123,13 @@ raw = os.getenv("EXCLUDE_URLS_REGEX", None)
 if raw:
   EXCLUDE_URLS_REGEX = re.compile(raw)
 else:
-  EXCLUDE_URLS_REGEX = re.compile(r"(?i)\.(?:tar\.gz|css|js|jpe?g|gif|png|bmp|ico|svg|woff2?|ttf|eot|otf|mp3|wav|ogg|mp4|avi|mov|wmv|flv|mkv|zip|rar|bz2|7z|exe)(?:[?#].*)?$")
+  EXCLUDE_URLS_REGEX = re.compile(r"(?i)\.(?:tar(?:\.gz|\.bz2|\.xz)?|css|js|jpe?g|gif|png|bmp|ico|svg|woff2?|ttf|eot|otf|mp3|wav|ogg|mp4|avi|mov|wmv|flv|mkv|zip|rar|bz2|7z|exe|bin|dmg|iso|apk)(?:[?#].*)?$")
+
+raw = os.getenv("NO_CRAWL_URLS_REGEX", None)
+if raw:
+  NO_CRAWL_URLS_REGEX = re.compile(raw)
+else:
+  NO_CRAWL_URLS_REGEX = re.compile(r"(?i)\.(?:pdf|xls(?:x|m)?|doc(?:x|m)?|ppt(?:x|m)?|rtf|txt|csv|tsv|md|epub|od[ts]|odp|zip|rar|tar(?:\.gz|\.bz2|\.xz)?|tgz|bz2|7z|exe|bin|dmg|iso|apk|xml|json|rss|atom|ics)(?:[?#].*)?$")
 
 # -- back to your regularly-scheduled crawler
 
@@ -222,21 +228,25 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], visi
   if FOLLOW_ROBOTS and robots and not robots.can_fetch(USER_AGENT, url):
     logging.debug(f"Skipping {url} due to robots.txt")
     return []
-  
+
   with lock:
     if url in visited:
       return []
     visited.add(url)
 
   ret_val = [url]
-  
+
+  if NO_CRAWL_URLS_REGEX.match(url):
+    logging.debug(f"Ending crawl at {url} due to NO_CRAWL_URLS_REGEX")
+    return ret_val
+
   if depth <= 0:
-    logging.debug(f"Ending crawl at URL {url} due to depth limit")
+    logging.debug(f"Ending crawl at {url} due to depth limit")
     return ret_val
 
   time.sleep(delay)
 
-  logging.debug(f"Crawling URL {url} at depth {depth}")
+  logging.debug(f"Crawling {url} at depth {depth}")
 
   try:
     resp = requests.get(url, timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})

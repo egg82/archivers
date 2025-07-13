@@ -115,7 +115,8 @@ python3 import.py
 | `DOMAIN_LIST` (domain_archiver)   | Semicolon-separated list of domains to crawl.                                                                   |
 | `FOLLOW_ROBOTS`                   | `1`/`true`/`yes`/`0`/`false`/`no` - whether to obey `robots.txt`.                                               |
 | `URL_FILTERS_REGEX`               | (Optional) Semicolon-separated regexes to override default URL filters.                                         |
-| `EXCLUDE_URLS_REGEX`              | (Optional) Regex to override default exclude URLs. (default: skips various file extensions)                     |
+| `EXCLUDE_URLS_REGEX`              | (Optional) Regex to override default exclude URLs. (default: skips archiving various file extensions)           |
+| `NO_CRAWL_URLS_REGEX`             | (Optional) Regex to override default no-crawl URLs. (default: skips crawling various file extensions)           |
 | `DOMAIN_TYPE_NEGATIVE_FILTER_REGEX` (gov_archiver) | Regex to exclude certain “Domain type” values when fetching the `.gov` list.                   |
 | `DEPTH_LIMIT`                     | How many link-hops from each seed URLs (0 = just the seeds).                                                    |
 | `CRAWL_DELAY`                     | Seconds to wait between requests to the same site.                                                              |

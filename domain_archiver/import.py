@@ -170,15 +170,38 @@ def get_urls_from_sitemaps(robots : Optional[RobotFileParser]) -> list[str]:
   ret_val = []
 
   for url in sitemap_urls:
-    try:
-      res = requests.get(url.strip(), timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
-      res.raise_for_status()
-      root = ET.fromstring(res.content)
-      ret_val.extend([loc.text for loc in root.findall(".//{*}loc") if loc.text])
-    except Exception as ex:
-      logging.error(f"Failed to parse sitemap {url}: {ex}")
+    returned_urls = parse_sitemap_urls(url.strip(), set())
+    for url in returned_urls:
+      ret_val.append(url)
 
   return ret_val
+
+def parse_sitemap_urls(url : str, sitemaps : set[str]) -> set[str]:
+  if url in sitemaps:
+    return set()
+
+  sitemaps.add(url)
+
+  try:
+    resp = requests.get(url, timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
+    resp.raise_for_status()
+    root = ET.fromstring(resp.content)
+  except Exception as ex:
+    logging.error(f"Failed to parse sitemap {url}: {ex}")
+    return set()
+
+  urls = set()
+
+  if root.tag.endswith('sitemapindex'):
+    for loc in root.findall(".//{*}loc"):
+      if loc.text:
+        urls.update(parse_sitemap_urls(loc.text.strip(), sitemaps))
+  elif root.tag.endswith('urlset'):
+    for loc in root.findall(".//{*}loc"):
+      if loc.text:
+        urls.add(loc.text.strip())
+
+  return urls
 
 def get_main_seed_url(domain : str) -> Optional[str]:
   for scheme in ("https", "http"):

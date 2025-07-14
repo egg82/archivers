@@ -170,7 +170,10 @@ def parse_sitemap_urls(url : str, session : requests.Session, sitemaps : set[str
 
     data = resp.content
     if url.lower().endswith(".gz") or resp.headers.get("Content-Encoding", "").lower().startswith("gzip"):
-      data = gzip.decompress(data)
+      try:
+        data = gzip.decompress(data)
+      except Exception:
+        pass
 
     root = ET.fromstring(data)
   except Exception as ex:

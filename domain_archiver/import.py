@@ -26,6 +26,8 @@ import logging
 import warnings
 from bs4 import XMLParsedAsHTMLWarning
 
+import gzip
+
 TAG=os.environ["TAG"]
 ARCHIVEBOX_URL = os.environ["ARCHIVEBOX_URL"].rstrip("/")
 API_TOKEN = os.environ["API_TOKEN"]
@@ -205,7 +207,12 @@ def parse_sitemap_urls(url : str, session : requests.Session, sitemaps : set[str
   try:
     resp = session.get(url, timeout=REQUEST_TIMEOUT)
     resp.raise_for_status()
-    root = ET.fromstring(resp.content)
+
+    data = resp.content
+    if url.lower().endswith(".gz") or resp.headers.get("Content-Encoding", "").lower().startswith("gzip"):
+      data = gzip.decompress(data)
+
+    root = ET.fromstring(data)
   except Exception as ex:
     logging.error(f"Failed to parse sitemap {url}: {ex}")
     return set()

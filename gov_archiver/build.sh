@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION=1.2.2
+VERSION=1.3.0
 
 docker build -t egg82/gov_archiver:ubi9-micro-$VERSION --file Dockerfile-ubi9-micro .
 docker push egg82/gov_archiver:ubi9-micro-$VERSION

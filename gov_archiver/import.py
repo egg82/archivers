@@ -12,9 +12,12 @@ import time
 import json
 import gc
 
+import redis
+
 from urllib.parse import urljoin
 from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup
+import gzip
 
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -25,8 +28,6 @@ import logging
 
 import warnings
 from bs4 import XMLParsedAsHTMLWarning
-
-import gzip
 
 TAG=os.environ["TAG"]
 ARCHIVEBOX_URL = os.environ["ARCHIVEBOX_URL"].rstrip("/")

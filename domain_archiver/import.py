@@ -9,6 +9,7 @@ import requests
 import re
 import time
 import json
+import gc
 
 from urllib.parse import urljoin
 from urllib.parse import urlparse
@@ -43,6 +44,8 @@ ARCHIVEBOX_HEADERS = {
   "Content-Type": "application/json",
   "User-Agent": USER_AGENT,
 }
+
+ARCHIVEBOX_ADD_BATCH_SIZE = 100
 
 # -- ignore the mess
 
@@ -135,14 +138,18 @@ else:
 
 def get_robots(domain : str, url : Optional[str] = None) -> Optional[RobotFileParser]:
   ret_val = RobotFileParser()
+
+  session = requests.Session()
+  session.headers.update({"User-Agent": USER_AGENT})
+
   for scheme in ("https", "http"):
     try:
-      txt = requests.get(f"{scheme}://{domain}/robots.txt", timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
+      txt = session.get(f"{scheme}://{domain}/robots.txt", timeout=REQUEST_TIMEOUT)
       if txt.status_code == 200:
         ret_val.parse(txt.text.splitlines())
         return ret_val
       
-      txt = requests.get(f"{scheme}://www.{domain}/robots.txt", timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
+      txt = session.get(f"{scheme}://www.{domain}/robots.txt", timeout=REQUEST_TIMEOUT)
       if txt.status_code == 200:
         ret_val.parse(txt.text.splitlines())
         return ret_val
@@ -151,17 +158,19 @@ def get_robots(domain : str, url : Optional[str] = None) -> Optional[RobotFilePa
 
   if url:
     try:
-      txt = requests.get(f"{url}robots.txt", timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
+      txt = session.get(f"{url}robots.txt", timeout=REQUEST_TIMEOUT)
       if txt.status_code == 200:
         ret_val.parse(txt.text.splitlines())
         return ret_val
       
-      txt = requests.get(f"{url}/robots.txt", timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
+      txt = session.get(f"{url}/robots.txt", timeout=REQUEST_TIMEOUT)
       if txt.status_code == 200:
         ret_val.parse(txt.text.splitlines())
         return ret_val
     except Exception:
       pass
+
+  session.close()
 
   return None
 
@@ -175,21 +184,26 @@ def get_urls_from_sitemaps(robots : Optional[RobotFileParser]) -> list[str]:
 
   ret_val = []
 
+  session = requests.Session()
+  session.headers.update({"User-Agent": USER_AGENT})
+
   for url in sitemap_urls:
-    returned_urls = parse_sitemap_urls(url.strip(), set())
+    returned_urls = parse_sitemap_urls(url.strip(), session, set())
     for url in returned_urls:
       ret_val.append(url)
 
+  session.close()
+
   return ret_val
 
-def parse_sitemap_urls(url : str, sitemaps : set[str]) -> set[str]:
+def parse_sitemap_urls(url : str, session : requests.Session, sitemaps : set[str]) -> set[str]:
   if url in sitemaps:
     return set()
 
   sitemaps.add(url)
 
   try:
-    resp = requests.get(url, timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
+    resp = session.get(url, timeout=REQUEST_TIMEOUT)
     resp.raise_for_status()
     root = ET.fromstring(resp.content)
   except Exception as ex:
@@ -201,7 +215,7 @@ def parse_sitemap_urls(url : str, sitemaps : set[str]) -> set[str]:
   if root.tag.endswith('sitemapindex'):
     for loc in root.findall(".//{*}loc"):
       if loc.text:
-        urls.update(parse_sitemap_urls(loc.text.strip(), sitemaps))
+        urls.update(parse_sitemap_urls(loc.text.strip(), session, sitemaps))
   elif root.tag.endswith('urlset'):
     for loc in root.findall(".//{*}loc"):
       if loc.text:
@@ -210,21 +224,26 @@ def parse_sitemap_urls(url : str, sitemaps : set[str]) -> set[str]:
   return urls
 
 def get_main_seed_url(domain : str) -> Optional[str]:
+  session = requests.Session()
+  session.headers.update({"User-Agent": USER_AGENT})
+
   for scheme in ("https", "http"):
     try:
-      res = requests.get(f"{scheme}://{domain}/", timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT}, allow_redirects=True)
+      res = session.get(f"{scheme}://{domain}/", timeout=REQUEST_TIMEOUT, allow_redirects=True)
       if res.status_code == 200:
         return res.url
 
-      res = requests.get(f"{scheme}://www.{domain}/", timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT}, allow_redirects=True)
+      res = session.get(f"{scheme}://www.{domain}/", timeout=REQUEST_TIMEOUT, allow_redirects=True)
       if res.status_code == 200:
         return res.url
     except Exception:
       pass
 
+  session.close()
+
   return None
 
-def get_links(url : str, delay : float, robots : Optional[RobotFileParser], visited : set[str], lock: threading.Lock, pool : ThreadPoolExecutor, depth : int) -> list[str]:
+def get_links(url : str, delay : float, robots : Optional[RobotFileParser], session : requests.Session, visited : set[str], lock: threading.Lock, pool : ThreadPoolExecutor, depth : int) -> list[str]:
   if FOLLOW_ROBOTS and robots and not robots.can_fetch(USER_AGENT, url):
     logging.debug(f"Skipping {url} due to robots.txt")
     return []
@@ -249,7 +268,7 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], visi
   logging.debug(f"Crawling {url} at depth {depth}")
 
   try:
-    resp = requests.get(url, timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
+    resp = session.get(url, timeout=REQUEST_TIMEOUT)
     resp.raise_for_status()
 
     soup = BeautifulSoup(resp.text, "html.parser")
@@ -263,24 +282,33 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], visi
           continue
 
       if not EXCLUDE_URLS_REGEX.match(href) and any(p.match(href) for p in URL_FILTERS):
-        futures.append(pool.submit(get_links, href, delay, robots, visited, lock, pool, depth - 1))
+        futures.append(pool.submit(get_links, href, delay, robots, session, visited, lock, pool, depth - 1))
       for fut in futures:
         ret_val.extend(fut.result())
+    soup.decompose()
   except Exception as ex:
     logging.error(f"URL {url} raised exception {ex}")
 
   return ret_val
 
 def add_urls(urls : list[str]):
-  payload = {"urls": urls, "depth": 0, "tag": TAG}
-  try:
-    resp = requests.post(ARCHIVEBOX_URL + "/api/v1/cli/add", headers=ARCHIVEBOX_HEADERS, json=payload)
-    resp.raise_for_status()
-    j = json.loads(resp.text)
-    if j["success"] != True:
-      logging.error(f"Could not add URL to Archivebox: {json.dumps(j)}")
-  except Exception as ex:
-    logging.error(f"Could not add URL to Archivebox: {ex}")
+  session = requests.Session()
+  session.headers.update(ARCHIVEBOX_HEADERS)
+
+  for i in range(0, len(urls), ARCHIVEBOX_ADD_BATCH_SIZE):
+    batch = urls[i : i + ARCHIVEBOX_ADD_BATCH_SIZE]
+    payload = {"urls": batch, "depth": 0, "tag": TAG}
+    try:
+      resp = session.post(ARCHIVEBOX_URL + "/api/v1/cli/add", json=payload)
+      resp.raise_for_status()
+      j = json.loads(resp.text)
+      if j["success"] != True:
+        logging.error(f"Could not add URL to Archivebox: {json.dumps(j)}")
+    except Exception as ex:
+      logging.error(f"Could not add URL to Archivebox: {ex}")
+    del batch
+
+  session.close()
 
 def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[str, int]:
   logging.info(f"Attempting to crawl domain {domain}")
@@ -311,10 +339,14 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
 
   logging.debug(f"Using crawl delay of {delay} for domain {domain}")
 
+  session = requests.Session()
+  session.headers.update({"User-Agent": USER_AGENT})
+
   links = []
   with ThreadPoolExecutor(max_workers=THREADS_PER_DOMAIN) as pool:
     for seed in seeds:
-      links.extend(get_links(seed, delay, robots, visited, lock, pool, DEPTH_LIMIT))
+      links.extend(get_links(seed, delay, robots, session, visited, lock, pool, DEPTH_LIMIT))
+  session.close()
   logging.info(f"Crawling for domain {domain} finished, adding links")
   links = [x for x in links if x is not None]
   if len(links) > 0:
@@ -324,7 +356,6 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
 def main():
   warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
-  visited = set()
   lock = threading.Lock()
 
   i = 0
@@ -333,10 +364,11 @@ def main():
   signal.signal(signal.SIGINT, signal.default_int_handler)
 
   with ThreadPoolExecutor(max_workers=SIMULTANEOUS_DOMAINS) as pool:
-    futures = {pool.submit(crawl_domain, d, visited, lock): d for d in DOMAINS}
+    futures = {pool.submit(crawl_domain, d, set(), lock): d for d in DOMAINS}
     try:
       for fut in as_completed(futures):
         domain, links = fut.result()
+        gc.collect()
         num_links += links
         i += 1
         logging.info(f"[{i}/{len(DOMAINS)}] [{num_links} links] Processed {domain} with {links} links")

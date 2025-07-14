@@ -352,16 +352,17 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
   session = requests.Session()
   session.headers.update({"User-Agent": USER_AGENT})
 
-  links = []
+  total = 0
   with ThreadPoolExecutor(max_workers=THREADS_PER_DOMAIN) as pool:
     for seed in seeds:
-      links.extend(get_links(seed, delay, robots, session, visited, lock, pool, DEPTH_LIMIT))
+      links = get_links(seed, delay, robots, session, visited, lock, pool, DEPTH_LIMIT)
+      links = [x for x in links if x is not None]
+      total += len(links)
+      add_urls(links)
+      del links
   session.close()
-  logging.info(f"Crawling for domain {domain} finished, adding links")
-  links = [x for x in links if x is not None]
-  if len(links) > 0:
-    add_urls(links)
-  return domain, len(links)
+  logging.info(f"Crawling for domain {domain} finished")
+  return domain, total
 
 def main():
   warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)

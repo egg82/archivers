@@ -137,6 +137,11 @@ if raw:
 else:
   NO_CRAWL_URLS_REGEX = re.compile(r"(?i)\.(?:pdf|xls(?:x|m)?|doc(?:x|m)?|ppt(?:x|m)?|rtf|txt|csv|tsv|md|epub|od[ts]|odp|zip|rar|tar(?:\.gz|\.bz2|\.xz)?|tgz|bz2|7z|exe|bin|dmg|iso|apk|xml|json|rss|atom|ics)(?:[?#].*)?$")
 
+REDIS_URL = os.environ.get("REDIS_URL", None)
+REDIS_USER = os.environ.get("REDIS_USER", None)
+REDIS_PASS = os.environ.get("REDIS_PASS", None)
+REDIS_NAMESPACE = os.environ.get("REDIS_NAMESPACE", "crawler")
+
 # -- back to your regularly-scheduled crawler
 
 def get_robots(domain : str, url : Optional[str] = None) -> Optional[RobotFileParser]:
@@ -254,15 +259,19 @@ def get_main_seed_url(domain : str) -> Optional[str]:
 
   return None
 
-def get_links(url : str, delay : float, robots : Optional[RobotFileParser], session : requests.Session, visited : set[str], lock: threading.Lock, pool : ThreadPoolExecutor, depth : int) -> list[str]:
+def get_links(url : str, delay : float, robots : Optional[RobotFileParser], session : requests.Session, redis_conn : Optional[redis.Redis], visited : set[str], lock: threading.Lock, pool : ThreadPoolExecutor, depth : int) -> list[str]:
   if FOLLOW_ROBOTS and robots and not robots.can_fetch(USER_AGENT, url):
     logging.debug(f"Skipping {url} due to robots.txt")
     return []
 
-  with lock:
-    if url in visited:
+  if redis_conn:
+    if redis_conn.execute_command("BF.ADD", REDIS_NAMESPACE + ":bloom", url) == 0:
       return []
-    visited.add(url)
+  else:
+    with lock:
+      if url in visited:
+        return []
+      visited.add(url)
 
   ret_val = [url]
 
@@ -288,12 +297,17 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], sess
       href = urljoin(resp.url, a["href"]).strip()
       if not href.startswith(("http://","https://")):
         continue
-      with lock:
-        if href in visited:
+
+      if redis_conn:
+        if redis_conn.execute_command("BF.ADD", REDIS_NAMESPACE + ":bloom", href) == 0:
           continue
+      else:
+        with lock:
+          if href in visited:
+            continue
 
       if not EXCLUDE_URLS_REGEX.match(href) and any(p.match(href) for p in URL_FILTERS):
-        futures.append(pool.submit(get_links, href, delay, robots, session, visited, lock, pool, depth - 1))
+        futures.append(pool.submit(get_links, href, delay, robots, session, redis_conn, visited, lock, pool, depth - 1))
       for fut in futures:
         ret_val.extend(fut.result())
     soup.decompose()
@@ -321,7 +335,7 @@ def add_urls(urls : list[str]):
 
   session.close()
 
-def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[str, int]:
+def crawl_domain(domain: str, redis_conn : Optional[redis.Redis], visited: set[str], lock: threading.Lock) -> tuple[str, int]:
   logging.info(f"Attempting to crawl domain {domain}")
 
   robots = get_robots(domain)
@@ -331,6 +345,9 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
   seeds = get_urls_from_sitemaps(robots)
   if main_seed_url:
     seeds.insert(0, main_seed_url)
+
+  if redis_conn:
+    seeds = [ url for url in seeds if redis_conn.execute_command("BF.ADD", REDIS_NAMESPACE + ":bloom", url) ]
 
   if len(seeds) == 0:
     logging.info(f"Skipping domain {domain} due to issues finding starting URL")
@@ -356,7 +373,7 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
   total = 0
   with ThreadPoolExecutor(max_workers=THREADS_PER_DOMAIN) as pool:
     for seed in seeds:
-      links = get_links(seed, delay, robots, session, visited, lock, pool, DEPTH_LIMIT)
+      links = get_links(seed, delay, robots, session, redis_conn, visited, lock, pool, DEPTH_LIMIT)
       links = [x for x in links if x is not None]
       total += len(links)
       add_urls(links)
@@ -375,8 +392,19 @@ def main():
 
   signal.signal(signal.SIGINT, signal.default_int_handler)
 
+  redis_conn = None
+  if REDIS_URL:
+    redis_kwargs = {}
+    if REDIS_USER and REDIS_PASS:
+      redis_kwargs = {"username": REDIS_USER, "password": REDIS_PASS}
+    redis_conn = redis.Redis.from_url(REDIS_URL, **redis_kwargs)
+    try:
+      redis_conn.execute_command("BF.RESERVE", REDIS_NAMESPACE + ":bloom", "0.01", "10000000") # 1% error for ~10M items
+    except Exception as ex:
+      logging.warning(f"Could not execute Redis command BF.RESERVE: {ex}")
+
   with ThreadPoolExecutor(max_workers=SIMULTANEOUS_DOMAINS) as pool:
-    futures = {pool.submit(crawl_domain, d, set(), lock): d for d in DOMAINS}
+    futures = {pool.submit(crawl_domain, d, redis_conn, set(), lock): d for d in DOMAINS}
     try:
       for fut in as_completed(futures):
         domain, links = fut.result()

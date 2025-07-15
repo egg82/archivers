@@ -231,7 +231,7 @@ def get_links(domain : str, url : str, delay : float, robots : Optional[RobotFil
   if redis_conn:
     if not redis_conn.bf().add(REDIS_BLOOM_KEY, url):
       return []
-    if not redis_conn.srem(REDIS_QUEUE_KEY + ":" + domain, url):
+    if depth < DEPTH_LIMIT and not redis_conn.srem(REDIS_QUEUE_KEY + ":" + domain, url):
       logging.debug(f"Skipping URL {url} due to being already consumed")
       return []
   else:

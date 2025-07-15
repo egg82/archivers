@@ -398,6 +398,23 @@ def crawl_domain(domain : str, redis_conn : Optional[redis.Redis], visited : set
   logging.info(f"Crawling for domain {domain} finished")
   return domain, total
 
+def redis_wait_queue(domains : list[str], redis_conn : redis.Redis, check_interval : float = 5.0, grace_period : float  = 30.0, max_checks : int = 30) -> bool:
+  keys = [ REDIS_QUEUE_KEY + ":" + domain for domain in domains ]
+  required_zero = int(grace_period / check_interval)
+  zero_count = 0
+
+  for _ in range(30):
+    total = sum(redis_conn.scard(key) for key in keys)
+    if total == 0:
+      zero_count += 1
+      if zero_count >= required_zero:
+        return True
+    else:
+      zero_count = 0
+    time.sleep(check_interval)
+
+  return False
+
 def main():
   warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
@@ -436,6 +453,14 @@ def main():
         f.cancel()
       pool.shutdown(wait=False)
       sys.exit(1)
+
+  if redis_conn:
+    logging.info("Finished crawling, waiting to clear Redis cache..")
+    if redis_wait_queue(DOMAINS, redis_conn):
+      redis_conn.delete(REDIS_BLOOM_KEY)
+      logging.info("Successfully cleared Redis cache")
+    else:
+      logging.info("Redis queue still has URLs (another running instance?) - exiting without clearing cache")
 
 if __name__ == "__main__":
   main()

@@ -125,6 +125,10 @@ python3 import.py
 | `REQUEST_TIMEOUT`                 | HTTP timeout (seconds) for all requests.                                                                        |
 | `USER_AGENT`                      | User-agent string to present when fetching pages or robots.txt.                                                 |
 | `LOG_LEVEL`                       | `debug`, `info`, `warn`, `error`, or `critical`.                                                                |
+| `REDIS_URL`                       | (Optional) Redis URL, e.g. `redis://host:6379/0`. Only required for parallel crawling or very deep crawls.      |
+| `REDIS_USER`                      | (Optional) Username for Redis authentication.                                                                   |
+| `REDIS_PASS`                      | (Optional) Password for Redis authentication.                                                                   |
+| `REDIS_NAMESPACE`                 | Namespace/prefix for all Redis keys (default: `crawler`).                                                       |
 
 ---
 

@@ -432,6 +432,8 @@ def redis_wait_queue(domains : list[str], redis_conn : redis.Redis, check_interv
 
 def main():
   warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
+  for lib in ("urllib3", "requests", "bs4", "chardet", "redis"):
+    logging.getLogger(lib).setLevel(logging.INFO)
 
   lock = threading.Lock()
 
@@ -447,7 +449,8 @@ def main():
       redis_kwargs = {"username": REDIS_USER, "password": REDIS_PASS}
     redis_conn = redis.Redis.from_url(REDIS_URL, **redis_kwargs)
     try:
-      redis_conn.bf().reserve(REDIS_BLOOM_KEY, 0.01, 10_000_000) # 1% error for ~10M items
+      if not redis_conn.exists(REDIS_BLOOM_KEY):
+        redis_conn.bf().reserve(REDIS_BLOOM_KEY, 0.01, 10_000_000) # 1% error for ~10M items
       logging.info(f"Conntected to Redis at {REDIS_URL}")
     except Exception as ex:
       logging.error(f"Could not reserve bloom filter in {REDIS_BLOOM_KEY}: {ex}")

@@ -11,10 +11,13 @@ import time
 import json
 import gc
 
+import redis
+
 from urllib.parse import urljoin
 from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup
+import gzip
 
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -25,8 +28,6 @@ import logging
 
 import warnings
 from bs4 import XMLParsedAsHTMLWarning
-
-import gzip
 
 TAG=os.environ["TAG"]
 ARCHIVEBOX_URL = os.environ["ARCHIVEBOX_URL"].rstrip("/")
@@ -135,6 +136,15 @@ if raw:
   NO_CRAWL_URLS_REGEX = re.compile(raw)
 else:
   NO_CRAWL_URLS_REGEX = re.compile(r"(?i)\.(?:pdf|xls(?:x|m)?|doc(?:x|m)?|ppt(?:x|m)?|rtf|txt|csv|tsv|md|epub|od[ts]|odp|zip|rar|tar(?:\.gz|\.bz2|\.xz)?|tgz|bz2|7z|exe|bin|dmg|iso|apk|xml|json|rss|atom|ics)(?:[?#].*)?$")
+
+REDIS_URL = os.environ.get("REDIS_URL", None)
+REDIS_USER = os.environ.get("REDIS_USER", None)
+REDIS_PASS = os.environ.get("REDIS_PASS", None)
+REDIS_NAMESPACE = os.environ.get("REDIS_NAMESPACE", "crawler")
+MAX_URL_POP = THREADS_PER_DOMAIN * 2
+
+REDIS_QUEUE_KEY = f"{REDIS_NAMESPACE}:queue"
+REDIS_BLOOM_KEY = f"{REDIS_NAMESPACE}:bloom"
 
 # -- back to your regularly-scheduled crawler
 
@@ -253,15 +263,22 @@ def get_main_seed_url(domain : str) -> Optional[str]:
 
   return None
 
-def get_links(url : str, delay : float, robots : Optional[RobotFileParser], session : requests.Session, visited : set[str], lock: threading.Lock, pool : ThreadPoolExecutor, depth : int) -> list[str]:
+def get_links(domain : str, url : str, delay : float, robots : Optional[RobotFileParser], session : requests.Session, redis_conn : Optional[redis.Redis], visited : set[str], lock: threading.Lock, pool : ThreadPoolExecutor, depth : int) -> list[str]:
   if FOLLOW_ROBOTS and robots and not robots.can_fetch(USER_AGENT, url):
     logging.debug(f"Skipping {url} due to robots.txt")
     return []
 
-  with lock:
-    if url in visited:
+  if redis_conn:
+    if not redis_conn.bf().add(REDIS_BLOOM_KEY, url):
       return []
-    visited.add(url)
+    if depth < DEPTH_LIMIT and not redis_conn.srem(REDIS_QUEUE_KEY + ":" + domain, json.dumps({"url": url, "depth": depth})):
+      logging.debug(f"Skipping URL {url} due to being already consumed")
+      return []
+  else:
+    with lock:
+      if url in visited:
+        return []
+      visited.add(url)
 
   ret_val = [url]
 
@@ -287,12 +304,18 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], sess
       href = urljoin(resp.url, a["href"]).strip()
       if not href.startswith(("http://","https://")):
         continue
-      with lock:
-        if href in visited:
+
+      if redis_conn:
+        if redis_conn.bf().exists(REDIS_BLOOM_KEY, url):
           continue
+      else:
+        with lock:
+          if href in visited:
+            continue
 
       if not EXCLUDE_URLS_REGEX.match(href) and any(p.match(href) for p in URL_FILTERS):
-        futures.append(pool.submit(get_links, href, delay, robots, session, visited, lock, pool, depth - 1))
+        if not redis_conn or redis_conn.sadd(REDIS_QUEUE_KEY + ":" + domain, json.dumps({"url": url, "depth": depth - 1})):
+          futures.append(pool.submit(get_links, domain, href, delay, robots, session, redis_conn, visited, lock, pool, depth - 1))
       for fut in futures:
         ret_val.extend(fut.result())
     soup.decompose()
@@ -320,7 +343,7 @@ def add_urls(urls : list[str]):
 
   session.close()
 
-def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[str, int]:
+def crawl_domain(domain : str, redis_conn : Optional[redis.Redis], visited : set[str], lock : threading.Lock) -> tuple[str, int]:
   logging.info(f"Attempting to crawl domain {domain}")
 
   robots = get_robots(domain)
@@ -331,11 +354,30 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
   if main_seed_url:
     seeds.insert(0, main_seed_url)
 
-  if len(seeds) == 0:
+  redis_seeds = []
+  if redis_conn:
+    val = redis_conn.srandmember(REDIS_QUEUE_KEY + ":" + domain, MAX_URL_POP)
+    if val:
+      if isinstance(val, set) or isinstance(val, list):
+        for v in val:
+          text = v.decode() if isinstance(v, bytes) else v
+          entry = json.loads(text)
+          redis_seeds.append(( entry["url"], entry["depth"] ))
+      elif isinstance(val, str) or isinstance(val, bytes):
+        text = val.decode() if isinstance(val, bytes) else val
+        entry = json.loads(text)
+        redis_seeds.append(( entry["url"], entry["depth"] ))
+      else:
+        logging.warning(f"SRANDMEMBER {REDIS_QUEUE_KEY + ':' + domain} returned invalid data type: {type(val)}")
+
+  if len(seeds) == 0 and len(redis_seeds) == 0:
     logging.info(f"Skipping domain {domain} due to issues finding starting URL")
     return domain, 0
 
-  logging.info(f"Found valid start URL {seeds[0]}")
+  if len(seeds) > 0:
+    logging.info(f"Found valid start URL {seeds[0]}")
+  if len(redis_seeds) > 0:
+    logging.info(f"Found queued URL from Redis {redis_seeds[0]['url']}")
 
   delay = CRAWL_DELAY
   if robots:
@@ -354,8 +396,15 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
 
   total = 0
   with ThreadPoolExecutor(max_workers=THREADS_PER_DOMAIN) as pool:
+    # Start with queued URLs first (attempt to partner up first) - THEN go for the regular seeds
+    for seed in redis_seeds:
+      links = get_links(domain, seed["url"], delay, robots, session, redis_conn, visited, lock, pool, seed["depth"])
+      links = [x for x in links if x is not None]
+      total += len(links)
+      add_urls(links)
+      del links
     for seed in seeds:
-      links = get_links(seed, delay, robots, session, visited, lock, pool, DEPTH_LIMIT)
+      links = get_links(domain, seed, delay, robots, session, redis_conn, visited, lock, pool, DEPTH_LIMIT)
       links = [x for x in links if x is not None]
       total += len(links)
       add_urls(links)
@@ -364,8 +413,27 @@ def crawl_domain(domain: str, visited: set[str], lock: threading.Lock) -> tuple[
   logging.info(f"Crawling for domain {domain} finished")
   return domain, total
 
+def redis_wait_queue(domains : list[str], redis_conn : redis.Redis, check_interval : float = 5.0, grace_period : float  = 30.0, max_checks : int = 30) -> bool:
+  keys = [ REDIS_QUEUE_KEY + ":" + domain for domain in domains ]
+  required_zero = int(grace_period / check_interval)
+  zero_count = 0
+
+  for _ in range(30):
+    total = sum(redis_conn.scard(key) for key in keys)
+    if total == 0:
+      zero_count += 1
+      if zero_count >= required_zero:
+        return True
+    else:
+      zero_count = 0
+    time.sleep(check_interval)
+
+  return False
+
 def main():
   warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
+  for lib in ("urllib3", "requests", "bs4", "chardet", "redis"):
+    logging.getLogger(lib).setLevel(logging.INFO)
 
   lock = threading.Lock()
 
@@ -374,8 +442,22 @@ def main():
 
   signal.signal(signal.SIGINT, signal.default_int_handler)
 
+  redis_conn = None
+  if REDIS_URL:
+    redis_kwargs = {}
+    if REDIS_USER and REDIS_PASS:
+      redis_kwargs = {"username": REDIS_USER, "password": REDIS_PASS}
+    redis_conn = redis.Redis.from_url(REDIS_URL, **redis_kwargs)
+    try:
+      if not redis_conn.exists(REDIS_BLOOM_KEY):
+        redis_conn.bf().reserve(REDIS_BLOOM_KEY, 0.01, 10_000_000) # 1% error for ~10M items
+      logging.info(f"Conntected to Redis at {REDIS_URL}")
+    except Exception as ex:
+      logging.error(f"Could not reserve bloom filter in {REDIS_BLOOM_KEY}: {ex}")
+      sys.exit(1)
+
   with ThreadPoolExecutor(max_workers=SIMULTANEOUS_DOMAINS) as pool:
-    futures = {pool.submit(crawl_domain, d, set(), lock): d for d in DOMAINS}
+    futures = {pool.submit(crawl_domain, d, redis_conn, set(), lock): d for d in DOMAINS}
     try:
       for fut in as_completed(futures):
         domain, links = fut.result()
@@ -389,6 +471,14 @@ def main():
         f.cancel()
       pool.shutdown(wait=False)
       sys.exit(1)
+
+  if redis_conn:
+    logging.info("Finished crawling, waiting to clear Redis cache..")
+    if redis_wait_queue(DOMAINS, redis_conn):
+      redis_conn.delete(REDIS_BLOOM_KEY)
+      logging.info("Successfully cleared Redis cache")
+    else:
+      logging.info("Redis queue still has URLs (another running instance?) - exiting without clearing cache")
 
 if __name__ == "__main__":
   main()

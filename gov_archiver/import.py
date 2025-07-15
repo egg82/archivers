@@ -231,7 +231,7 @@ def get_links(domain : str, url : str, delay : float, robots : Optional[RobotFil
   if redis_conn:
     if not redis_conn.bf().add(REDIS_BLOOM_KEY, url):
       return []
-    if depth < DEPTH_LIMIT and not redis_conn.srem(REDIS_QUEUE_KEY + ":" + domain, url):
+    if depth < DEPTH_LIMIT and not redis_conn.srem(REDIS_QUEUE_KEY + ":" + domain, json.dumps({"url": url, "depth": depth})):
       logging.debug(f"Skipping URL {url} due to being already consumed")
       return []
   else:
@@ -274,7 +274,7 @@ def get_links(domain : str, url : str, delay : float, robots : Optional[RobotFil
             continue
 
       if not EXCLUDE_URLS_REGEX.match(href) and any(p.match(href) for p in URL_FILTERS):
-        if not redis_conn or redis_conn.sadd(REDIS_QUEUE_KEY + ":" + domain, url):
+        if not redis_conn or redis_conn.sadd(REDIS_QUEUE_KEY + ":" + domain, json.dumps({"url": url, "depth": depth - 1})):
           futures.append(pool.submit(get_links, domain, href, delay, robots, session, redis_conn, visited, lock, pool, depth - 1))
       for fut in futures:
         ret_val.extend(fut.result())
@@ -314,22 +314,30 @@ def crawl_domain(domain : str, redis_conn : Optional[redis.Redis], visited : set
   if main_seed_url:
     seeds.insert(0, main_seed_url)
 
-  if redis_conn and len(seeds) == 0:
+  redis_seeds = []
+  if redis_conn:
     val = redis_conn.srandmember(REDIS_QUEUE_KEY + ":" + domain, MAX_URL_POP)
     if val:
       if isinstance(val, set) or isinstance(val, list):
         for v in val:
-          seeds.append(v.decode() if isinstance(v, bytes) else v)
+          text = v.decode() if isinstance(v, bytes) else v
+          entry = json.loads(text)
+          redis_seeds.append(( entry["url"], entry["depth"] ))
       elif isinstance(val, str) or isinstance(val, bytes):
-        seeds.append(val.decode() if isinstance(val, bytes) else val)
+        text = val.decode() if isinstance(val, bytes) else val
+        entry = json.loads(text)
+        redis_seeds.append(( entry["url"], entry["depth"] ))
       else:
-        logging.warning(f"RPOP {REDIS_QUEUE_KEY + ':' + domain} returned invalid data type: {type(val)}")
+        logging.warning(f"SRANDMEMBER {REDIS_QUEUE_KEY + ':' + domain} returned invalid data type: {type(val)}")
 
-  if len(seeds) == 0:
+  if len(seeds) == 0 and len(redis_seeds) == 0:
     logging.info(f"Skipping domain {domain} due to issues finding starting URL")
     return domain, 0
 
-  logging.info(f"Found valid start URL {seeds[0]}")
+  if len(seeds) > 0:
+    logging.info(f"Found valid start URL {seeds[0]}")
+  if len(redis_seeds) > 0:
+    logging.info(f"Found queued URL from Redis {redis_seeds[0]['url']}")
 
   delay = CRAWL_DELAY
   if robots:
@@ -348,6 +356,13 @@ def crawl_domain(domain : str, redis_conn : Optional[redis.Redis], visited : set
 
   total = 0
   with ThreadPoolExecutor(max_workers=THREADS_PER_DOMAIN) as pool:
+    # Start with queued URLs first (attempt to partner up first) - THEN go for the regular seeds
+    for seed in redis_seeds:
+      links = get_links(domain, seed["url"], delay, robots, session, redis_conn, visited, lock, pool, seed["depth"])
+      links = [x for x in links if x is not None]
+      total += len(links)
+      add_urls(links)
+      del links
     for seed in seeds:
       links = get_links(domain, seed, delay, robots, session, redis_conn, visited, lock, pool, DEPTH_LIMIT)
       links = [x for x in links if x is not None]

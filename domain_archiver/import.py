@@ -355,14 +355,13 @@ def crawl_domain(domain : str, redis_conn : Optional[redis.Redis], visited : set
     seeds.insert(0, main_seed_url)
 
   if redis_conn and len(seeds) == 0:
-    val = redis_conn.spop(REDIS_QUEUE_KEY + ":" + domain, MAX_URL_POP)
+    val = redis_conn.srandmember(REDIS_QUEUE_KEY + ":" + domain, MAX_URL_POP)
     if val:
-      if isinstance(val, set):
-        seeds.extend(val)
-      elif isinstance(val, list):
-        seeds = val
-      elif isinstance(val, str):
-        seeds.append(val)
+      if isinstance(val, set) or isinstance(val, list):
+        for v in val:
+          seeds.append(v.decode() if isinstance(v, bytes) else v)
+      elif isinstance(val, str) or isinstance(val, bytes):
+        seeds.append(val.decode() if isinstance(val, bytes) else val)
       else:
         logging.warning(f"RPOP {REDIS_QUEUE_KEY + ':' + domain} returned invalid data type: {type(val)}")
 

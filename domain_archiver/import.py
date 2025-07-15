@@ -141,6 +141,7 @@ REDIS_URL = os.environ.get("REDIS_URL", None)
 REDIS_USER = os.environ.get("REDIS_USER", None)
 REDIS_PASS = os.environ.get("REDIS_PASS", None)
 REDIS_NAMESPACE = os.environ.get("REDIS_NAMESPACE", "crawler")
+MAX_URL_POP = THREADS_PER_DOMAIN * 2
 
 REDIS_QUEUE_KEY = f"{REDIS_NAMESPACE}:queue"
 REDIS_BLOOM_KEY = f"{REDIS_NAMESPACE}:bloom"
@@ -262,13 +263,16 @@ def get_main_seed_url(domain : str) -> Optional[str]:
 
   return None
 
-def get_links(url : str, delay : float, robots : Optional[RobotFileParser], session : requests.Session, redis_conn : Optional[redis.Redis], visited : set[str], lock: threading.Lock, pool : ThreadPoolExecutor, depth : int) -> list[str]:
+def get_links(domain : str, url : str, delay : float, robots : Optional[RobotFileParser], session : requests.Session, redis_conn : Optional[redis.Redis], visited : set[str], lock: threading.Lock, pool : ThreadPoolExecutor, depth : int) -> list[str]:
   if FOLLOW_ROBOTS and robots and not robots.can_fetch(USER_AGENT, url):
     logging.debug(f"Skipping {url} due to robots.txt")
     return []
 
   if redis_conn:
-    if redis_conn.execute_command("BF.ADD", REDIS_BLOOM_KEY, url) == 0:
+    if not redis_conn.bf().add(REDIS_BLOOM_KEY, url):
+      return []
+    if not redis_conn.srem(REDIS_QUEUE_KEY + ":" + domain, url):
+      logging.debug(f"Skipping URL {url} due to being already consumed")
       return []
   else:
     with lock:
@@ -302,7 +306,7 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], sess
         continue
 
       if redis_conn:
-        if redis_conn.execute_command("BF.ADD", REDIS_BLOOM_KEY, href) == 0:
+        if redis_conn.bf().exists(REDIS_BLOOM_KEY, url):
           continue
       else:
         with lock:
@@ -310,9 +314,10 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], sess
             continue
 
       if not EXCLUDE_URLS_REGEX.match(href) and any(p.match(href) for p in URL_FILTERS):
-        futures.append(pool.submit(get_links, href, delay, robots, session, redis_conn, visited, lock, pool, depth - 1))
-      for fut in futures:
-        ret_val.extend(fut.result())
+        if not redis_conn or redis_conn.sadd(REDIS_QUEUE_KEY + ":" + domain, url):
+          futures.append(pool.submit(get_links, domain, href, delay, robots, session, redis_conn, visited, lock, pool, depth - 1))
+    for fut in futures:
+      ret_val.extend(fut.result())
     soup.decompose()
   except Exception as ex:
     logging.error(f"URL {url} raised exception {ex}")
@@ -349,8 +354,17 @@ def crawl_domain(domain : str, redis_conn : Optional[redis.Redis], visited : set
   if main_seed_url:
     seeds.insert(0, main_seed_url)
 
-  if redis_conn:
-    seeds = [ url for url in seeds if redis_conn.execute_command("BF.ADD", REDIS_BLOOM_KEY, url) ]
+  if redis_conn and len(seeds) == 0:
+    val = redis_conn.spop(REDIS_QUEUE_KEY + ":" + domain, MAX_URL_POP)
+    if val:
+      if isinstance(val, set):
+        seeds.extend(val)
+      elif isinstance(val, list):
+        seeds = val
+      elif isinstance(val, str):
+        seeds.append(val)
+      else:
+        logging.warning(f"RPOP {REDIS_QUEUE_KEY + ':' + domain} returned invalid data type: {type(val)}")
 
   if len(seeds) == 0:
     logging.info(f"Skipping domain {domain} due to issues finding starting URL")
@@ -376,7 +390,7 @@ def crawl_domain(domain : str, redis_conn : Optional[redis.Redis], visited : set
   total = 0
   with ThreadPoolExecutor(max_workers=THREADS_PER_DOMAIN) as pool:
     for seed in seeds:
-      links = get_links(seed, delay, robots, session, redis_conn, visited, lock, pool, DEPTH_LIMIT)
+      links = get_links(domain, seed, delay, robots, session, redis_conn, visited, lock, pool, DEPTH_LIMIT)
       links = [x for x in links if x is not None]
       total += len(links)
       add_urls(links)
@@ -402,9 +416,11 @@ def main():
       redis_kwargs = {"username": REDIS_USER, "password": REDIS_PASS}
     redis_conn = redis.Redis.from_url(REDIS_URL, **redis_kwargs)
     try:
-      redis_conn.execute_command("BF.RESERVE", REDIS_BLOOM_KEY, "0.01", "10000000") # 1% error for ~10M items
+      redis_conn.bf().reserve(REDIS_BLOOM_KEY, 0.01, 10_000_000) # 1% error for ~10M items
+      logging.info(f"Conntected to Redis at {REDIS_URL}")
     except Exception as ex:
-      logging.warning(f"Could not execute Redis command BF.RESERVE: {ex}")
+      logging.error(f"Could not reserve bloom filter in {REDIS_BLOOM_KEY}: {ex}")
+      sys.exit(1)
 
   with ThreadPoolExecutor(max_workers=SIMULTANEOUS_DOMAINS) as pool:
     futures = {pool.submit(crawl_domain, d, redis_conn, set(), lock): d for d in DOMAINS}

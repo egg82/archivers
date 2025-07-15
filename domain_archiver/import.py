@@ -316,8 +316,8 @@ def get_links(domain : str, url : str, delay : float, robots : Optional[RobotFil
       if not EXCLUDE_URLS_REGEX.match(href) and any(p.match(href) for p in URL_FILTERS):
         if not redis_conn or redis_conn.sadd(REDIS_QUEUE_KEY + ":" + domain, url):
           futures.append(pool.submit(get_links, domain, href, delay, robots, session, redis_conn, visited, lock, pool, depth - 1))
-    for fut in futures:
-      ret_val.extend(fut.result())
+      for fut in futures:
+        ret_val.extend(fut.result())
     soup.decompose()
   except Exception as ex:
     logging.error(f"URL {url} raised exception {ex}")

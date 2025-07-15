@@ -90,6 +90,9 @@ REDIS_USER = os.environ.get("REDIS_USER", None)
 REDIS_PASS = os.environ.get("REDIS_PASS", None)
 REDIS_NAMESPACE = os.environ.get("REDIS_NAMESPACE", "crawler")
 
+REDIS_QUEUE_KEY = f"{REDIS_NAMESPACE}:queue"
+REDIS_BLOOM_KEY = f"{REDIS_NAMESPACE}:bloom"
+
 def get_domains() -> list[str]:
   r = requests.get("https://raw.githubusercontent.com/cisagov/dotgov-data/main/current-full.csv", timeout=REQUEST_TIMEOUT, headers={"User-Agent": USER_AGENT})
   r.raise_for_status()
@@ -225,7 +228,7 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], sess
     return []
 
   if redis_conn:
-    if redis_conn.execute_command("BF.ADD", REDIS_NAMESPACE + ":bloom", url) == 0:
+    if redis_conn.execute_command("BF.ADD", REDIS_BLOOM_KEY, url) == 0:
       return []
   else:
     with lock:
@@ -259,7 +262,7 @@ def get_links(url : str, delay : float, robots : Optional[RobotFileParser], sess
         continue
 
       if redis_conn:
-        if redis_conn.execute_command("BF.ADD", REDIS_NAMESPACE + ":bloom", href) == 0:
+        if redis_conn.execute_command("BF.ADD", REDIS_BLOOM_KEY, href) == 0:
           continue
       else:
         with lock:
@@ -295,7 +298,7 @@ def add_urls(urls : list[str]):
 
   session.close()
 
-def crawl_domain(domain: str, redis_conn : Optional[redis.Redis], visited: set[str], lock: threading.Lock) -> tuple[str, int]:
+def crawl_domain(domain : str, redis_conn : Optional[redis.Redis], visited : set[str], lock : threading.Lock) -> tuple[str, int]:
   logging.info(f"Attempting to crawl domain {domain}")
 
   robots = get_robots(domain)
@@ -307,7 +310,7 @@ def crawl_domain(domain: str, redis_conn : Optional[redis.Redis], visited: set[s
     seeds.insert(0, main_seed_url)
 
   if redis_conn:
-    seeds = [ url for url in seeds if redis_conn.execute_command("BF.ADD", REDIS_NAMESPACE + ":bloom", url) ]
+    seeds = [ url for url in seeds if redis_conn.execute_command("BF.ADD", REDIS_BLOOM_KEY, url) ]
 
   if len(seeds) == 0:
     logging.info(f"Skipping domain {domain} due to issues finding starting URL")
@@ -375,7 +378,7 @@ def main():
       redis_kwargs = {"username": REDIS_USER, "password": REDIS_PASS}
     redis_conn = redis.Redis.from_url(REDIS_URL, **redis_kwargs)
     try:
-      redis_conn.execute_command("BF.RESERVE", REDIS_NAMESPACE + ":bloom", "0.01", "10000000") # 1% error for ~10M items
+      redis_conn.execute_command("BF.RESERVE", REDIS_BLOOM_KEY, "0.01", "10000000") # 1% error for ~10M items
     except Exception as ex:
       logging.warning(f"Could not execute Redis command BF.RESERVE: {ex}")
 

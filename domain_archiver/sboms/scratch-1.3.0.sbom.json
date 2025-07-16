@@ -1,0 +1,2549 @@
+{
+  "SPDX": {
+    "SPDXID": "SPDXRef-DOCUMENT",
+    "creationInfo": {
+      "created": "2025-07-16T02:20:59Z",
+      "creators": [
+        "Organization: Anchore, Inc",
+        "Tool: syft-v1.27.1",
+        "Tool: buildkit-v0.22.0"
+      ],
+      "licenseListVersion": "3.25"
+    },
+    "dataLicense": "CC0-1.0",
+    "documentNamespace": "https://anchore.com/syft/dir/sbom-4880543e-fc5b-478c-835b-63d676c6a6fb",
+    "files": [
+      {
+        "SPDXID": "SPDXRef-File-bin-bash-883b47422de7f04f",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "97995faa249e5706dd0b0373c9da547709bf7349755d5fc8e52f97a4bd04feaf"
+          }
+        ],
+        "comment": "layerID: sha256:3885f98bc441e1c3eb8f8ff66f2494abb80e8636203c4e7b5a3dc1cd827976de",
+        "copyrightText": "NOASSERTION",
+        "fileName": "bin/bash",
+        "fileTypes": [
+          "APPLICATION",
+          "BINARY"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...async-timeout-5.0.1.dist-info-METADATA-cd800924771f6dee",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "4550cd1083d820124a3ec8d38490da2915f587bf7ee1061036e04b4973c8b54f"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/async_timeout-5.0.1.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...async-timeout-5.0.1.dist-info-RECORD-8ab724db6c3fd424",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "45fffcedf2d2ffd9f7a0054efeb3c015ed6f11450a578feb5449fe8a48092694"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/async_timeout-5.0.1.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...top-level.txt-a50235295fb3b610",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "f683387bb4f0abc883ffbfd0dcccf413a18f201eaf26f445a3e501c1442d0435"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/async_timeout-5.0.1.dist-info/top_level.txt",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...METADATA-fe012d13f5d32235",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "cd7c0f32030421dca6115fe500bd10ccfdf88baa2c7a6fcfda77ea81a11ec51a"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/beautifulsoup4-4.13.4.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...beautifulsoup4-4.13.4.dist-info-RECORD-4fde5f4fa63c4136",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "1e052c0ca33abf5cb3254553638f97afe5e0e5465c59498acff7e0fc5ba6812c"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/beautifulsoup4-4.13.4.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...certifi-2025.7.14.dist-info-METADATA-57ca5ebdec09dec3",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "edc98328ed1af9f55c3ff5827d9e03a4b2a00ccbbf0040188534f996cc104e86"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/certifi-2025.7.14.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...certifi-2025.7.14.dist-info-RECORD-33813b236f9bea8e",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "c45612ab35442c84f2727d3d1c18faf3c87decec08fdf3b35f5d537074d1c6a8"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/certifi-2025.7.14.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...top-level.txt-4cf2c4002313b7ab",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "28cbb8bd409fb232eb90f6d235d81d7a44bea552730402453bffe723c345ebe5"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/certifi-2025.7.14.dist-info/top_level.txt",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...chardet-5.2.0.dist-info-METADATA-574914dcd21ef3b4",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "3c0af6350ea1416a63c859f0948ecca311edd92ffaa11894b2e70e28c361cc6c"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/chardet-5.2.0.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...chardet-5.2.0.dist-info-RECORD-95a4ac800d08a8aa",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "596ed52173dc2921cdccda3f9874eaacdbd6069feae064c238a963f6f4a22e12"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/chardet-5.2.0.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...chardet-5.2.0.dist-info-top-level.txt-c5fb8392a23dadab",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "028c3305b672e31f048ab0010dd2522c964c909ff9de221a83cc5f291e83ee42"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/chardet-5.2.0.dist-info/top_level.txt",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...idna-3.10.dist-info-METADATA-f76f13c0b7e8fb61",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "5114796720df4353c2106864628a23a9f8b645ad2d6aedbefa58701b85d27e32"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/idna-3.10.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...idna-3.10.dist-info-RECORD-41eab12fbba3ee68",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "3d368ff63d1cbdd7d56c1807d56f6900e87648bf584005b393b3acf119f3e286"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/idna-3.10.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...redis-6.2.0.dist-info-METADATA-723a3e8b6f2eeba6",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "9d4efe92324bfc8f0a1cc44d1662c1792f6d58fc133cec36fe843c74405f48f3"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/redis-6.2.0.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...redis-6.2.0.dist-info-RECORD-631f2ba19ad430f0",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "47a99b14fefb5bbbe511c293e5333537cbb0ee34c137f9032dc8b0c28929e1b3"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/redis-6.2.0.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...requests-2.32.4.dist-info-METADATA-c39d21e5d9eeca85",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "dd2e362ef34da0bd843f62230b55425e81259c6ad34d55b03e0226541e05605e"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/requests-2.32.4.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...requests-2.32.4.dist-info-RECORD-f628bd22676cf6e7",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "1514b2c420f6cad25e96c7bc8a7136aa9bf80432b57406f892007b4e391cda2d"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/requests-2.32.4.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...top-level.txt-eafce1a1c8cebc08",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "7cc4959877dbe6b6c63a8eb1bfe3bfb545fa8fe5b28b1b2c13e4a7c1c0d1c4d4"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/requests-2.32.4.dist-info/top_level.txt",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...soupsieve-2.7.dist-info-METADATA-f1437af947f25db0",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "8808142b152f08db9e4e4afa38f8eb6a565e97e070838a646a83b84624411b79"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/soupsieve-2.7.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...soupsieve-2.7.dist-info-RECORD-001e47a5e6dfd4d8",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "647ab36faa4c28aa51f7bb64b2ff2bf59634e81af15dcdcc6d616c3f7d58e0cf"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/soupsieve-2.7.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...METADATA-47164a68c8ea9320",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "f0b4b77a7174c372b22f85988a69457ec91c9e401183eb2ffcbead1db3cc4b9b"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/typing_extensions-4.14.1.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...RECORD-d78e3f38954fe2bf",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "af047edb1b36777d04a16e2d825187d99e21e8de4bd8ca15d852cdd49ff289c5"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/typing_extensions-4.14.1.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...urllib3-2.5.0.dist-info-METADATA-fc7c6af4a311a814",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "99a6244c866dd1afa59040be84c6566c206670667225c60e791938fe7b93acd7"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/urllib3-2.5.0.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...urllib3-2.5.0.dist-info-RECORD-57926d821ec77f96",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "271ab78fcd33955ad6f82b9622152e27246c792fb775530e523b90facac40cbe"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib/python3.9/site-packages/urllib3-2.5.0.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...METADATA-976a1b7f6c4d1119",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "ccd556138ad05be61920c1ca49ac8cca9bb7edb2e3ff16b22e8ac7974f870074"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib64/python3.9/site-packages/charset_normalizer-3.4.2.dist-info/METADATA",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...RECORD-163b8ead5a142b07",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "a81bc4989330b6770b240ee13a8da35df82355a4af29104584af584585feac59"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib64/python3.9/site-packages/charset_normalizer-3.4.2.dist-info/RECORD",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-...top-level.txt-072a554eb961c324",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "ec04b2cde3ebf3fc6e65626c9ea263201b7257cbe1128d30042bf530f4518b74"
+          }
+        ],
+        "comment": "layerID: sha256:67a7500807c7790b22c11f5d4882fb9edd2216fa0f3bc47a98cb0d6db31d970c",
+        "copyrightText": "NOASSERTION",
+        "fileName": "install/lib64/python3.9/site-packages/charset_normalizer-3.4.2.dist-info/top_level.txt",
+        "fileTypes": [
+          "TEXT"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-lib64-libpython3.9.so.1.0-d6161f8ad05cb3a6",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "fad30b32c09d29ea48829ab30609719be7b4aae3fdc0a3a8de2c3f1452057c9e"
+          }
+        ],
+        "comment": "layerID: sha256:e65cb6c7606139fdb10e99792a121a809ecd3e0a369cb42a9411fa2858cb4e5b",
+        "copyrightText": "NOASSERTION",
+        "fileName": "lib64/libpython3.9.so.1.0",
+        "fileTypes": [
+          "APPLICATION",
+          "BINARY"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-usr-bin-python3.9-5aa2c04f2ada5617",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "8500bef9235d08d24fae5ad45c63cf8d78a2bac902bdc6d09fb5131a1a28c103"
+          }
+        ],
+        "comment": "layerID: sha256:44e2f7973f23608576822513e284bec08cb64ca02de73de0607f94e644382500",
+        "copyrightText": "NOASSERTION",
+        "fileName": "usr/bin/python3.9",
+        "fileTypes": [
+          "APPLICATION",
+          "BINARY"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      },
+      {
+        "SPDXID": "SPDXRef-File-usr-lib64-libpython3.9.so.1.0-4d04b3f2d2e603fa",
+        "checksums": [
+          {
+            "algorithm": "SHA256",
+            "checksumValue": "fad30b32c09d29ea48829ab30609719be7b4aae3fdc0a3a8de2c3f1452057c9e"
+          }
+        ],
+        "comment": "layerID: sha256:9ba703bd0700ea012c1c8a7cbc162f439b1ce2b1189f998fda52d60fb4448118",
+        "copyrightText": "NOASSERTION",
+        "fileName": "usr/lib64/libpython3.9.so.1.0",
+        "fileTypes": [
+          "APPLICATION",
+          "BINARY"
+        ],
+        "licenseConcluded": "NOASSERTION",
+        "licenseInfoInFiles": [
+          "NOASSERTION"
+        ]
+      }
+    ],
+    "hasExtractedLicensingInfos": [
+      {
+        "extractedText": "NOASSERTION",
+        "licenseId": "LicenseRef-Apache-2",
+        "name": "Apache 2"
+      },
+      {
+        "extractedText": "NOASSERTION",
+        "licenseId": "LicenseRef-LGPL",
+        "name": "LGPL"
+      },
+      {
+        "extractedText": "NOASSERTION",
+        "licenseId": "LicenseRef-MIT-License",
+        "name": "MIT License"
+      }
+    ],
+    "name": "sbom",
+    "packages": [
+      {
+        "SPDXID": "SPDXRef-Package-python-async-timeout-e10e6038a40db6a0",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003e_project:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003e_project:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003eproject:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003eproject:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003e_project:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003e_project:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003e:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003e:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003eproject:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003eproject:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003e:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_\\\u003candrew_svetlov\\@gmail_com\\\u003e:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_project:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_project:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlovproject:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlovproject:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-async-timeout:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-async-timeout:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_async_timeout:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_async_timeout:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_project:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov_project:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew-svetlov:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew-svetlov:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlovproject:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlovproject:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async-timeout:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async-timeout:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async_timeout:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async_timeout:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-async-timeout:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-async-timeout:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_async_timeout:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_async_timeout:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-async:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-async:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_async:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_async:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew-svetlov:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew-svetlov:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:andrew_svetlov:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async-timeout:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async-timeout:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async_timeout:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async_timeout:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async:python-async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async:python_async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-async:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-async:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_async:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_async:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async:async-timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:async:async_timeout:5.0.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/async-timeout@5.0.1",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "LicenseRef-Apache-2",
+        "name": "async-timeout",
+        "originator": "Person: Andrew Svetlov (andrew.svetlov@gmail.com)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/async_timeout-5.0.1.dist-info/METADATA, /install/lib/python3.9/site-packages/async_timeout-5.0.1.dist-info/RECORD, /install/lib/python3.9/site-packages/async_timeout-5.0.1.dist-info/top_level.txt",
+        "supplier": "Person: Andrew Svetlov (andrew.svetlov@gmail.com)",
+        "versionInfo": "5.0.1"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-binary-bash-50ebecd36b50f73a",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:gnu:bash:5.1.8:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:generic/bash@5.1.8",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "NOASSERTION",
+        "name": "bash",
+        "sourceInfo": "acquired package info from the following paths: /bin/bash",
+        "supplier": "NOASSERTION",
+        "versionInfo": "5.1.8"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-beautifulsoup4-07f99529e74bf65a",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardr_project:python-beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardr_project:python_beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardrproject:python-beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardrproject:python_beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardr_project:beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard-richardson-\\\u003cleonardr:python-beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard-richardson-\\\u003cleonardr:python_beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardr:python-beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardr:python_beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardrproject:beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard-richardson-\\\u003cleonardr:beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:leonard_richardson_\\\u003cleonardr:beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-beautifulsoup4:python-beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-beautifulsoup4:python_beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_beautifulsoup4:python-beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_beautifulsoup4:python_beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:beautifulsoup4:python-beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:beautifulsoup4:python_beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-beautifulsoup4:beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_beautifulsoup4:beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:beautifulsoup4:beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python-beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python_beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:beautifulsoup4:4.13.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/beautifulsoup4@4.13.4",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "LicenseRef-MIT-License",
+        "name": "beautifulsoup4",
+        "originator": "Person: Leonard Richardson (leonardr@segfault.org)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/beautifulsoup4-4.13.4.dist-info/METADATA, /install/lib/python3.9/site-packages/beautifulsoup4-4.13.4.dist-info/RECORD",
+        "supplier": "Person: Leonard Richardson (leonardr@segfault.org)",
+        "versionInfo": "4.13.4"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-certifi-60048715a5b57694",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:certifi:certifi:2025.7.14:*:*:*:*:python:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/certifi@2025.7.14",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "MPL-2.0",
+        "name": "certifi",
+        "originator": "Person: Kenneth Reitz (me@kennethreitz.com)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/certifi-2025.7.14.dist-info/METADATA, /install/lib/python3.9/site-packages/certifi-2025.7.14.dist-info/RECORD, /install/lib/python3.9/site-packages/certifi-2025.7.14.dist-info/top_level.txt",
+        "supplier": "Person: Kenneth Reitz (me@kennethreitz.com)",
+        "versionInfo": "2025.7.14"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-chardet-c0e3dd5c0051384c",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrim_project:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrim_project:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrimproject:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrimproject:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-chardet:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-chardet:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_chardet:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_chardet:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrim_project:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrim:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrim:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrimproject:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_project:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_project:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:markproject:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:markproject:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:chardet:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:chardet:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-chardet:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_chardet:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_pilgrim:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark_project:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark:python-chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark:python_chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:markproject:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:chardet:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:mark:chardet:5.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/chardet@5.2.0",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "LicenseRef-LGPL",
+        "name": "chardet",
+        "originator": "Person: Mark Pilgrim (mark@diveintomark.org)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/chardet-5.2.0.dist-info/METADATA, /install/lib/python3.9/site-packages/chardet-5.2.0.dist-info/RECORD, /install/lib/python3.9/site-packages/chardet-5.2.0.dist-info/top_level.txt",
+        "supplier": "Person: Mark Pilgrim (mark@diveintomark.org)",
+        "versionInfo": "5.2.0"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-charset-normalizer-8ea43ecfebfa00ef",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmed_project:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmed_project:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmedproject:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmedproject:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmed_project:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmed_project:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed-r--tahri\\\"-\\\u003ctahri-ahmed:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed-r--tahri\\\"-\\\u003ctahri-ahmed:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmed:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmed:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmedproject:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmedproject:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-charset-normalizer:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-charset-normalizer:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_charset_normalizer:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_charset_normalizer:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed-r--tahri\\\"-\\\u003ctahri-ahmed:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed-r--tahri\\\"-\\\u003ctahri-ahmed:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmed:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"ahmed_r__tahri\\\"_\\\u003ctahri_ahmed:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset-normalizer:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset-normalizer:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset_normalizer:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset_normalizer:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-charset-normalizer:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-charset-normalizer:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_charset_normalizer:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_charset_normalizer:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-charset:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-charset:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_charset:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_charset:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset-normalizer:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset-normalizer:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset_normalizer:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset_normalizer:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-charset:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-charset:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_charset:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_charset:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python-charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python_charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:charset:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:charset-normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:charset_normalizer:3.4.2:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/charset-normalizer@3.4.2",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "MIT",
+        "name": "charset-normalizer",
+        "originator": "Person: \\\"Ahmed R. TAHRI\\\" (tahri.ahmed@proton.me)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib64/python3.9/site-packages/charset_normalizer-3.4.2.dist-info/METADATA, /install/lib64/python3.9/site-packages/charset_normalizer-3.4.2.dist-info/RECORD, /install/lib64/python3.9/site-packages/charset_normalizer-3.4.2.dist-info/top_level.txt",
+        "supplier": "Person: \\\"Ahmed R. TAHRI\\\" (tahri.ahmed@proton.me)",
+        "versionInfo": "3.4.2"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-idna-dfdb640cd282e782",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypi_project:python-idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypi_project:python_idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypiproject:python-idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypiproject:python_idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypi_project:idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim-davies-\\\u003ckim\\+pypi:python-idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim-davies-\\\u003ckim\\+pypi:python_idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypi:python-idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypi:python_idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypiproject:idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim-davies-\\\u003ckim\\+pypi:idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:kim_davies_\\\u003ckim\\+pypi:idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-idna:python-idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-idna:python_idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_idna:python-idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_idna:python_idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python-idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python_idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:idna:python-idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:idna:python_idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-idna:idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_idna:idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:idna:idna:3.10:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/idna@3.10",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "BSD-3-Clause",
+        "licenseDeclared": "NOASSERTION",
+        "name": "idna",
+        "originator": "Person: Kim Davies (kim+pypi@gumleaf.org)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/idna-3.10.dist-info/METADATA, /install/lib/python3.9/site-packages/idna-3.10.dist-info/RECORD",
+        "supplier": "Person: Kim Davies (kim+pypi@gumleaf.org)",
+        "versionInfo": "3.10"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-binary-python-40eeb52cff4e3c16",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_software_foundation:python:3.9.21:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python:3.9.21:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:generic/python@3.9.21",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "NOASSERTION",
+        "name": "python",
+        "sourceInfo": "acquired package info from the following paths: /lib64/libpython3.9.so.1.0, /usr/lib64/libpython3.9.so.1.0, /usr/bin/python3.9",
+        "supplier": "NOASSERTION",
+        "versionInfo": "3.9.21"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-redis-31c8e8a1700e1800",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003coss_project:python-redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003coss_project:python_redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003cossproject:python-redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003cossproject:python_redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003coss_project:redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis-inc-\\\"-\\\u003coss:python-redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis-inc-\\\"-\\\u003coss:python_redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003coss:python-redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003coss:python_redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003cossproject:redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-redis:python-redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-redis:python_redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_redis:python-redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_redis:python_redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis-inc-\\\"-\\\u003coss:redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:\\\"redis_inc_\\\"_\\\u003coss:redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python-redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python_redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-redis:redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_redis:redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:redis:6.2.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/redis@6.2.0",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "MIT",
+        "name": "redis",
+        "originator": "Person: \\\"Redis Inc.\\\" (oss@redis.com)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/redis-6.2.0.dist-info/METADATA, /install/lib/python3.9/site-packages/redis-6.2.0.dist-info/RECORD",
+        "supplier": "Person: \\\"Redis Inc.\\\" (oss@redis.com)",
+        "versionInfo": "6.2.0"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-requests-8bfb8afa968e865a",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:requests:2.32.4:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/requests@2.32.4",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "Apache-2.0",
+        "name": "requests",
+        "originator": "Person: Kenneth Reitz (me@kennethreitz.org)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/requests-2.32.4.dist-info/METADATA, /install/lib/python3.9/site-packages/requests-2.32.4.dist-info/RECORD, /install/lib/python3.9/site-packages/requests-2.32.4.dist-info/top_level.txt",
+        "supplier": "Person: Kenneth Reitz (me@kennethreitz.org)",
+        "versionInfo": "2.32.4"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-soupsieve-aaaca45542968faf",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_muse_project:python-soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_muse_project:python_soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_museproject:python-soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_museproject:python_soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_muse_project:soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac-muse-\\\u003cisaac-muse:python-soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac-muse-\\\u003cisaac-muse:python_soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_muse:python-soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_muse:python_soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_museproject:soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-soupsieve:python-soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-soupsieve:python_soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_soupsieve:python-soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_soupsieve:python_soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac-muse-\\\u003cisaac-muse:soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:isaac_muse_\\\u003cisaac_muse:soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-soupsieve:soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_soupsieve:soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:soupsieve:python-soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:soupsieve:python_soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python-soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python_soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:soupsieve:soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:soupsieve:2.7:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/soupsieve@2.7",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "MIT",
+        "name": "soupsieve",
+        "originator": "Person: Isaac Muse (Isaac.Muse@gmail.com)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/soupsieve-2.7.dist-info/METADATA, /install/lib/python3.9/site-packages/soupsieve-2.7.dist-info/RECORD",
+        "supplier": "Person: Isaac Muse (Isaac.Muse@gmail.com)",
+        "versionInfo": "2.7"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-typing-extensions-9272ffc5e69fb2a0",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-typing-extensions:python-typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-typing-extensions:python_typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_typing_extensions:python-typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_typing_extensions:python_typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-typing-extensions:typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-typing-extensions:typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_typing_extensions:typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_typing_extensions:typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing-extensions:python-typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing-extensions:python_typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing_extensions:python-typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing_extensions:python_typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-typing:python-typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-typing:python_typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_typing:python-typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_typing:python_typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing-extensions:typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing-extensions:typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing_extensions:typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing_extensions:typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-typing:typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python-typing:typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python-typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:python_typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_typing:typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python_typing:typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing:python-typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing:python_typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing:typing-extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:typing:typing_extensions:4.14.1:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/typing-extensions@4.14.1",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "PSF-2.0",
+        "name": "typing-extensions",
+        "originator": "Person: \\\"Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee\\\" (levkivskyi@gmail.com)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/typing_extensions-4.14.1.dist-info/METADATA, /install/lib/python3.9/site-packages/typing_extensions-4.14.1.dist-info/RECORD",
+        "supplier": "Person: \\\"Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee\\\" (levkivskyi@gmail.com)",
+        "versionInfo": "4.14.1"
+      },
+      {
+        "SPDXID": "SPDXRef-Package-python-urllib3-1a6d362d375cebe9",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "externalRefs": [
+          {
+            "referenceCategory": "SECURITY",
+            "referenceLocator": "cpe:2.3:a:python:urllib3:2.5.0:*:*:*:*:*:*:*",
+            "referenceType": "cpe23Type"
+          },
+          {
+            "referenceCategory": "PACKAGE-MANAGER",
+            "referenceLocator": "pkg:pypi/urllib3@2.5.0",
+            "referenceType": "purl"
+          }
+        ],
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "MIT",
+        "name": "urllib3",
+        "originator": "Person: Andrey Petrov (andrey.petrov@shazow.net)",
+        "sourceInfo": "acquired package info from installed python package manifest file: /install/lib/python3.9/site-packages/urllib3-2.5.0.dist-info/METADATA, /install/lib/python3.9/site-packages/urllib3-2.5.0.dist-info/RECORD",
+        "supplier": "Person: Andrey Petrov (andrey.petrov@shazow.net)",
+        "versionInfo": "2.5.0"
+      },
+      {
+        "SPDXID": "SPDXRef-DocumentRoot-Directory-sbom",
+        "copyrightText": "NOASSERTION",
+        "downloadLocation": "NOASSERTION",
+        "filesAnalyzed": false,
+        "licenseConcluded": "NOASSERTION",
+        "licenseDeclared": "NOASSERTION",
+        "name": "sbom",
+        "primaryPackagePurpose": "FILE",
+        "supplier": "NOASSERTION"
+      }
+    ],
+    "relationships": [
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-requests-8bfb8afa968e865a",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-urllib3-1a6d362d375cebe9"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-requests-8bfb8afa968e865a",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-certifi-60048715a5b57694"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-redis-31c8e8a1700e1800",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-requests-8bfb8afa968e865a"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-beautifulsoup4-07f99529e74bf65a",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-typing-extensions-9272ffc5e69fb2a0"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-beautifulsoup4-07f99529e74bf65a",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-soupsieve-aaaca45542968faf"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-beautifulsoup4-07f99529e74bf65a",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-chardet-c0e3dd5c0051384c"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-requests-8bfb8afa968e865a",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-chardet-c0e3dd5c0051384c"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-requests-8bfb8afa968e865a",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-idna-dfdb640cd282e782"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-redis-31c8e8a1700e1800",
+        "relationshipType": "DEPENDENCY_OF",
+        "spdxElementId": "SPDXRef-Package-python-async-timeout-e10e6038a40db6a0"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...beautifulsoup4-4.13.4.dist-info-RECORD-4fde5f4fa63c4136",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-beautifulsoup4-07f99529e74bf65a"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...METADATA-fe012d13f5d32235",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-beautifulsoup4-07f99529e74bf65a"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...urllib3-2.5.0.dist-info-RECORD-57926d821ec77f96",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-urllib3-1a6d362d375cebe9"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...urllib3-2.5.0.dist-info-METADATA-fc7c6af4a311a814",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-urllib3-1a6d362d375cebe9"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...redis-6.2.0.dist-info-RECORD-631f2ba19ad430f0",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-redis-31c8e8a1700e1800"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...redis-6.2.0.dist-info-METADATA-723a3e8b6f2eeba6",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-redis-31c8e8a1700e1800"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-usr-lib64-libpython3.9.so.1.0-4d04b3f2d2e603fa",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-binary-python-40eeb52cff4e3c16"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-usr-bin-python3.9-5aa2c04f2ada5617",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-binary-python-40eeb52cff4e3c16"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-lib64-libpython3.9.so.1.0-d6161f8ad05cb3a6",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-binary-python-40eeb52cff4e3c16"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-bin-bash-883b47422de7f04f",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-binary-bash-50ebecd36b50f73a"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...certifi-2025.7.14.dist-info-RECORD-33813b236f9bea8e",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-certifi-60048715a5b57694"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...top-level.txt-4cf2c4002313b7ab",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-certifi-60048715a5b57694"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...certifi-2025.7.14.dist-info-METADATA-57ca5ebdec09dec3",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-certifi-60048715a5b57694"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...requests-2.32.4.dist-info-METADATA-c39d21e5d9eeca85",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-requests-8bfb8afa968e865a"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...top-level.txt-eafce1a1c8cebc08",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-requests-8bfb8afa968e865a"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...requests-2.32.4.dist-info-RECORD-f628bd22676cf6e7",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-requests-8bfb8afa968e865a"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...top-level.txt-072a554eb961c324",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-charset-normalizer-8ea43ecfebfa00ef"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...RECORD-163b8ead5a142b07",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-charset-normalizer-8ea43ecfebfa00ef"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...METADATA-976a1b7f6c4d1119",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-charset-normalizer-8ea43ecfebfa00ef"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...METADATA-47164a68c8ea9320",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-typing-extensions-9272ffc5e69fb2a0"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...RECORD-d78e3f38954fe2bf",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-typing-extensions-9272ffc5e69fb2a0"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...soupsieve-2.7.dist-info-RECORD-001e47a5e6dfd4d8",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-soupsieve-aaaca45542968faf"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...soupsieve-2.7.dist-info-METADATA-f1437af947f25db0",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-soupsieve-aaaca45542968faf"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...chardet-5.2.0.dist-info-METADATA-574914dcd21ef3b4",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-chardet-c0e3dd5c0051384c"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...chardet-5.2.0.dist-info-RECORD-95a4ac800d08a8aa",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-chardet-c0e3dd5c0051384c"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...chardet-5.2.0.dist-info-top-level.txt-c5fb8392a23dadab",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-chardet-c0e3dd5c0051384c"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...idna-3.10.dist-info-RECORD-41eab12fbba3ee68",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-idna-dfdb640cd282e782"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...idna-3.10.dist-info-METADATA-f76f13c0b7e8fb61",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-idna-dfdb640cd282e782"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...async-timeout-5.0.1.dist-info-RECORD-8ab724db6c3fd424",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-async-timeout-e10e6038a40db6a0"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...top-level.txt-a50235295fb3b610",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-async-timeout-e10e6038a40db6a0"
+      },
+      {
+        "comment": "evident-by: indicates the package's existence is evident by the given file",
+        "relatedSpdxElement": "SPDXRef-File-...async-timeout-5.0.1.dist-info-METADATA-cd800924771f6dee",
+        "relationshipType": "OTHER",
+        "spdxElementId": "SPDXRef-Package-python-async-timeout-e10e6038a40db6a0"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-async-timeout-e10e6038a40db6a0",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-binary-bash-50ebecd36b50f73a",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-beautifulsoup4-07f99529e74bf65a",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-certifi-60048715a5b57694",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-chardet-c0e3dd5c0051384c",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-charset-normalizer-8ea43ecfebfa00ef",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-idna-dfdb640cd282e782",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-binary-python-40eeb52cff4e3c16",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-redis-31c8e8a1700e1800",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-requests-8bfb8afa968e865a",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-soupsieve-aaaca45542968faf",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-typing-extensions-9272ffc5e69fb2a0",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-Package-python-urllib3-1a6d362d375cebe9",
+        "relationshipType": "CONTAINS",
+        "spdxElementId": "SPDXRef-DocumentRoot-Directory-sbom"
+      },
+      {
+        "relatedSpdxElement": "SPDXRef-DocumentRoot-Directory-sbom",
+        "relationshipType": "DESCRIBES",
+        "spdxElementId": "SPDXRef-DOCUMENT"
+      }
+    ],
+    "spdxVersion": "SPDX-2.3"
+  }
+}

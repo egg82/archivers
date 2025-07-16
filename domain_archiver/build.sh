@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 VERSION=1.3.0
+DOCKERFILES=(ubi9-micro ubi9-minimal scratch alpine)
 
-docker build -t egg82/domain_archiver:ubi9-micro-$VERSION --file Dockerfile-ubi9-micro .
-docker push egg82/domain_archiver:ubi9-micro-$VERSION
+docker buildx create --use --name sbom-builder || true
 
-docker build -t egg82/domain_archiver:ubi9-minimal-$VERSION --file Dockerfile-ubi9-minimal .
-docker push egg82/domain_archiver:ubi9-minimal-$VERSION
+for flavor in "${DOCKERFILES[@]}"; do
+    IMAGE=egg82/domain_archiver:${flavor}-$VERSION
+    DOCKERFILE=Dockerfile-$flavor
 
-docker build -t egg82/domain_archiver:scratch-$VERSION --file Dockerfile-scratch .
-docker push egg82/domain_archiver:scratch-$VERSION
-
-docker build -t egg82/domain_archiver:alpine-$VERSION --file Dockerfile-alpine .
-docker push egg82/domain_archiver:alpine-$VERSION
+    docker buildx build --builder sbom-builder --tag "$IMAGE" --sbom true --push -f "$DOCKERFILE" .
+done
